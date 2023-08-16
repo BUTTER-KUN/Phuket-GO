@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Profile : MonoBehaviour
 {
+    public GameObject ProfileUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class Profile : MonoBehaviour
     }
 
     public void whenButtonClicked(){
-        if (ProfileUI.activeInHierachy == true)
+        if (ProfileUI.activeInHierarchy == true)
             ProfileUI.SetActive(false);
         else
             ProfileUI.SetActive(true);
