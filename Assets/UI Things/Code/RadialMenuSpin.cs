@@ -3,10 +3,9 @@ using UnityEngine;
 public class RadialMenuSpin : MonoBehaviour
 {
     public Transform buttonGroup;
-    public float spinSpeed = 10.0f;
+    public float spinSpeed = 50.0f;
 
     private Vector3 mouseStartPosition;
-    private float rotationAmount;
 
     private void Update()
     {
@@ -18,12 +17,9 @@ public class RadialMenuSpin : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Vector3 deltaMouse = Input.mousePosition - mouseStartPosition;
-            float deltaAngle = Mathf.Atan2(deltaMouse.y, deltaMouse.x) * Mathf.Rad2Deg;
+            float rotationAmount = -deltaMouse.x * spinSpeed * Time.deltaTime;
 
-            float newRotationAmount = deltaAngle * spinSpeed * Time.deltaTime;
-            rotationAmount += newRotationAmount;
-
-            buttonGroup.rotation = Quaternion.Euler(0, 0, rotationAmount);
+            buttonGroup.Rotate(Vector3.forward, rotationAmount);
 
             mouseStartPosition = Input.mousePosition;
         }
