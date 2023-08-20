@@ -1,26 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Profile : MonoBehaviour
 {
-    public GameObject ProfileUI;
-    // Start is called before the first frame update
-    void Start()
+    public Image profileui;
+    public string inputButton = "Fire1";
+    public float holdDuration = 1.0f;
+
+    private bool isHoldingButton = false;
+    private float holdStartTime = 0.0f;
+
+    private void Start()
     {
-        
+        profileui.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
+    public void ShowProfile()
+    {
+        if (Input.GetButton(inputButton))
+        {
+            if (!isHoldingButton)
+            {
+                isHoldingButton = true;
+                holdStartTime = Time.time;
+            }
+
+            if (Time.time - holdStartTime >= holdDuration)
+            {
+                profileui.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            isHoldingButton = false;
+        }
+    }
+
+    public void HideProfile()
+    {
+        isHoldingButton = false;
+        profileui.gameObject.SetActive(false);
+    }
+
     void Update()
     {
-        
-    }
-
-    public void whenButtonClicked(){
-        if (ProfileUI.activeInHierarchy == true)
-            ProfileUI.SetActive(false);
-        else
-            ProfileUI.SetActive(true);
+        ShowProfile();
     }
 }
