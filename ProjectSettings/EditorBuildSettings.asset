@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Radial Menu.unity
+    guid: f03c875483f91ad43b07aec313cb90de
+  - enabled: 1
+    path: Assets/Scenes/Inventory.unity
+    guid: 0f583d48f8a3cc94e8b01a6a4fe7c8ad
   m_configObjects: {}
