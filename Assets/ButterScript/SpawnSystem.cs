@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[System.Serializable]
-public class Material 
+ [System.Serializable] 
+public class Material
 {
     public string Name;
 
@@ -12,6 +11,7 @@ public class Material
 
     [HideInInspector] public double _weight;
 }
+
 
 public class SpawnSystem : MonoBehaviour
 {
@@ -25,24 +25,27 @@ public class SpawnSystem : MonoBehaviour
         CalculateWeight ();
     }
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown (KeyCode.Mouse0))
-        {
-            for (int i = 0; i < 100; i++) //amout of item spawning
+        
+        for (int i = 0; i < 20; i++) //amout of item spawning
             {
-                SpawnRandomMaterial (new Vector2(Random.Range (-7f,7f),Random.Range (-6f,6f))); // Area of Spawning
+                SpawnRandomMaterial (new Vector2(Random.Range (-6f,6f),Random.Range (-6f,6f))); // Area of Spawning
             }
-        }
+
     }
+
 
     private void SpawnRandomMaterial(Vector2 position)
     {
         Material randomMaterial = materials [GetRandomMaterialIndex () ];
 
-        Instantiate (randomMaterial.Prefab, position, Quaternion.identity, transform);
+        GameObject spawnedObject = Instantiate(randomMaterial.Prefab, position, Quaternion.identity, transform);
 
+        BoxCollider2D collider = spawnedObject.AddComponent<BoxCollider2D>();
         
+        collider.size = new Vector2(1, 1);
+
     }
 
     private int GetRandomMaterialIndex (){
