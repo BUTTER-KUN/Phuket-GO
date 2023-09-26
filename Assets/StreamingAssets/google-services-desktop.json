@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "93161090894",
+    "project_id": "hamterhub-phuketgo",
+    "storage_bucket": "hamterhub-phuketgo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93161090894:android:28711b6269ef4a6d49f81f",
+        "android_client_info": {
+          "package_name": "com.company.phuketgo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6efkH5WLXqu7YFdJ2SUDtH1yH2vIxzgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
