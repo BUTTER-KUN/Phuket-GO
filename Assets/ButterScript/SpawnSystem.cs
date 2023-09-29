@@ -25,7 +25,13 @@ public class SpawnSystem : MonoBehaviour
         CalculateWeight ();
     }
 
-    private void Start()
+    private void Start ()
+    {
+        SpawnMaterials();
+        StartCoroutine(RespawnMaterialsRoutine());
+    }
+
+    private void SpawnMaterials()
     {
         
         for (int i = 0; i < 20; i++) //amout of item spawning
@@ -46,9 +52,13 @@ public class SpawnSystem : MonoBehaviour
         
         collider.size = new Vector2(1, 1);
 
+        MaterialScript materialScript = spawnedObject.AddComponent<MaterialScript>();
+        materialScript.material = randomMaterial;
+
     }
 
-    private int GetRandomMaterialIndex (){
+    private int GetRandomMaterialIndex ()
+    {
         double r = rand.NextDouble () * accumulatedWeights;
 
         for (int i = 0; i < materials.Length; i++)
@@ -67,4 +77,27 @@ public class SpawnSystem : MonoBehaviour
             material._weight =accumulatedWeights;
         }
     }
+    
+    private IEnumerator RespawnMaterialsRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f); //set respawn time
+            RespawnMaterials();
+        }
+    }
+
+    private void RespawnMaterials()
+    {
+        // Destroy existing materials
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        // Spawn new materials
+        SpawnMaterials();
+    }
 }
+
+
+
