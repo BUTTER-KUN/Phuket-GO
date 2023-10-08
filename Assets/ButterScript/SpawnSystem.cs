@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- [System.Serializable] 
+ 
+
+[System.Serializable]
 public class Material
 {
     public string Name;
+    public MaterialItem materialItem;
 
-    public GameObject Prefab;
-    [Range (0f , 50f)]public float Chance = 20f ;
+    [Range(0f, 50f)]
+    public float Chance = 20f;
 
-    [HideInInspector] public double _weight;
+    [HideInInspector]
+    public double _weight;
+
+    [HideInInspector] public GameObject materialPrefab; // Added for direct reference.
 }
+
 
 
 public class SpawnSystem : MonoBehaviour
@@ -40,22 +47,21 @@ public class SpawnSystem : MonoBehaviour
             }
 
     }
+private void SpawnRandomMaterial(Vector2 position)
+{
+    Material randomMaterial = materials[GetRandomMaterialIndex () ];
+    
+    MaterialItem spawnedMaterialItem = randomMaterial.materialItem;
 
+    // Assuming MaterialItem has a GameObject property, use that
+    GameObject spawnedObject = Instantiate(spawnedMaterialItem.materialPrefab, position, Quaternion.identity, transform);
+    
+    BoxCollider2D collider = spawnedObject.AddComponent<BoxCollider2D>();
+    collider.size = new Vector2(1, 1);
 
-    private void SpawnRandomMaterial(Vector2 position)
-    {
-        Material randomMaterial = materials [GetRandomMaterialIndex () ];
-
-        GameObject spawnedObject = Instantiate(randomMaterial.Prefab, position, Quaternion.identity, transform);
-
-        BoxCollider2D collider = spawnedObject.AddComponent<BoxCollider2D>();
-        
-        collider.size = new Vector2(1, 1);
-
-        MaterialScript materialScript = spawnedObject.AddComponent<MaterialScript>();
-        materialScript.material = randomMaterial;
-
-    }
+    MaterialScript materialScript = spawnedObject.AddComponent<MaterialScript>();
+    materialScript.material = randomMaterial;
+}
 
     private int GetRandomMaterialIndex ()
     {
@@ -70,12 +76,12 @@ public class SpawnSystem : MonoBehaviour
     }
     private void CalculateWeight () 
     {
-        accumulatedWeights = 0f;
-        foreach (Material material in materials)
-        {
-            accumulatedWeights += material.Chance;
-            material._weight =accumulatedWeights;
-        }
+    accumulatedWeights = 0f;
+    foreach (Material material in materials)
+    {
+        accumulatedWeights += material.Chance;
+        material._weight = accumulatedWeights;
+    }
     }
     
     private IEnumerator RespawnMaterialsRoutine()
