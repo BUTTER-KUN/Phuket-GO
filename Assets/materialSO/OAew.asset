@@ -18,6 +18,9 @@ MonoBehaviour:
     Chinese cuisine, and was introduced to Phuket by Hokkien immigrants who settled
     there during the boom in the tin mining industry from the mid-19th to early 20th
     centuries.
+  value: 0
+  materialAmount: 4
+  maxStack: 20
   materialIcon: {fileID: 21300000, guid: 3a020e045c69c9641976cddd43f993a8, type: 3}
   materialPrefab: {fileID: 1361288168933584314, guid: aca762cc27888c747b8d341e425c2161,
     type: 3}

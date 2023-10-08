@@ -18,6 +18,9 @@ MonoBehaviour:
     which can get very tall (coffee farmers will usually keep them trimmed to around
     5ft to keep them manageable). On these coffee plants, bunches of cherries grow
     and it\u2019s inside these that you\u2019ll find two coffee beans."
+  value: 0
+  materialAmount: 4
+  maxStack: 20
   materialIcon: {fileID: 21300000, guid: f18edccb7873afe4eba0db0ec4f1f12f, type: 3}
   materialPrefab: {fileID: 3305879530463042278, guid: 51e992a0b05ae1e4da0017b8010ec288,
     type: 3}

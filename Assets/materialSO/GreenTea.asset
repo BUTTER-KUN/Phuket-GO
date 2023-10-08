@@ -19,6 +19,9 @@ MonoBehaviour:
     which is used to make oolong teas and black teas.[1] Green tea originated in
     China, and since then its production and manufacture has spread to other countries
     in East Asia.
+  value: 0
+  materialAmount: 4
+  maxStack: 20
   materialIcon: {fileID: 21300000, guid: f91c4ff649838f94ab28f730bc09b10c, type: 3}
   materialPrefab: {fileID: 7155175995658971655, guid: 0b5a55fc1173b2a46a78b7c772861137,
     type: 3}
