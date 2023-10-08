@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class MaterialScript : MonoBehaviour
 {
-    [HideInInspector] // This will hide the Material field in the Unity Inspector
+    [HideInInspector]
     public Material material;
+
+    private bool collected = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+    if (collision.gameObject.CompareTag("Player"))
+    {
+        InventoryManager.Instance.AddMaterialItem(material.materialItem);
+        material.materialItem.materialAmount++;
+
+        // Check if the amount exceeds the max stack size
+        if (material.materialItem.materialAmount > material.materialItem.maxStack)
         {
-            InventoryManager.Instance.AddMaterialItem(material.materialItem); // Add MaterialItem to the list
-            Destroy(gameObject);
-            Debug.Log(material.materialItem.materialName);
+            material.materialItem.materialAmount = material.materialItem.maxStack;
         }
+
+        Destroy(gameObject);
+        Debug.Log(material.materialItem.materialName);
+    }
     }
 }
