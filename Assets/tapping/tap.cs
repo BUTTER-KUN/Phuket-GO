@@ -5,21 +5,37 @@ using UnityEngine.UI;
 
 public class tap : MonoBehaviour
 {
-    public Text hitCount;
-    private int hit = 100;
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Animator anim;
 
-    void Update()
+    [SerializeField] private float meleeSpeed;
+
+    [SerializeField] private float damage;
+
+    float timeUltilMelee;
+
+    private void Update()
     {
-        
+        if (timeUltilMelee <= 0f)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                anim.SetTrigger("Attack");
+                timeUltilMelee = meleeSpeed;
+
+            }
+            else
+            {
+                timeUltilMelee -= Time.deltaTime;
+
+            }
+        }
     }
-    public void count()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        hit--;
-        hitCount.text = "Health: " + hit;
+        if(other.tag == "Enemy")
+        {
+            Debug.Log(other.tag);
+        }
     }
 }
 
