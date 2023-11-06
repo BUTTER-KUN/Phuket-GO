@@ -26,6 +26,7 @@ public class InventoryManager : MonoBehaviour
             if (material.materialItem.materialAmount < material.materialItem.maxStack)
             {
                 material.materialItem.materialAmount++;
+
             }
             return;
         }
@@ -44,23 +45,22 @@ public class InventoryManager : MonoBehaviour
 
     public void ListItems()
     {
-    Debug.Log("Listing Items");
-    // Clear ItemContent before instantiating new items
-    foreach (Transform child in ItemContent)
-    {
-        Destroy(child.gameObject);
-    }
-
-    foreach (var material in Materials)
+        Debug.Log("Listing Items");
+        // Clear ItemContent before instantiating new items
+        foreach (Transform item in ItemContent)
         {
-            GameObject obj = Instantiate(InventoryItem, ItemContent);
-            var itemName = obj.transform.Find("materialName").GetComponent<Text>();
-            var itemIcon = obj.transform.Find("materialIcon").GetComponent<Image>();
-            var itemAmount = obj.transform.Find("materialAmount").GetComponent<Text>();
-
-            itemName.text = material.materialItem.materialName;
-            itemIcon.sprite = material.materialItem.materialIcon;
-            itemAmount.text = "x" + material.materialItem.materialAmount.ToString();
+            Destroy(item.gameObject);
         }
+
+        foreach (var material in Materials)
+            {
+                GameObject obj = Instantiate(InventoryItem, ItemContent); 
+                var itemIcon = obj.transform.Find("materialIcon").GetComponent<Image>();
+                var itemAmount = obj.transform.Find("materialAmount").GetComponent<Text>();
+
+                
+                itemIcon.sprite = material.materialItem.materialIcon;
+                itemAmount.text = "x" + material.materialItem.materialAmount.ToString();
+            }
     }
 }

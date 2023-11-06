@@ -14,12 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialID: 1
   materialName: Coffee Bean
-  materialDescription: "Coffee beans come from the coffee plant, a bush-like plant
-    which can get very tall (coffee farmers will usually keep them trimmed to around
-    5ft to keep them manageable). On these coffee plants, bunches of cherries grow
-    and it\u2019s inside these that you\u2019ll find two coffee beans."
+  materialDescription: The aromatic and flavorful essence of mornings, ready to be
+    ground, brewed, and transformed into a rich, invigorating cup of liquid motivation!
   value: 0
-  materialAmount: 4
+  materialAmount: 8
   maxStack: 20
   materialIcon: {fileID: 21300000, guid: f18edccb7873afe4eba0db0ec4f1f12f, type: 3}
   materialPrefab: {fileID: 3305879530463042278, guid: 51e992a0b05ae1e4da0017b8010ec288,

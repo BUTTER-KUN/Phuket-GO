@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e320e7bba4aab14f83f1543882eb91b, type: 3}
-  m_Name: GreenTea
+  m_Name: DriedChili
   m_EditorClassIdentifier: 
-  materialID: 2
-  materialName: Green Tea
-  materialDescription: Nature's vibrant emerald gems, steeped to create a refreshing
-    elixir that invigorates and soothes with every sip!
+  materialID: 0
+  materialName: Dried Chili
+  materialDescription: The secret weapon in spice arsenal!
   value: 0
-  materialAmount: 8
+  materialAmount: 1
   maxStack: 20
-  materialIcon: {fileID: 21300000, guid: f91c4ff649838f94ab28f730bc09b10c, type: 3}
-  materialPrefab: {fileID: 7155175995658971655, guid: 0b5a55fc1173b2a46a78b7c772861137,
+  materialIcon: {fileID: 21300000, guid: d435fcc160555f943963b9eacc55a4fc, type: 3}
+  materialPrefab: {fileID: 8760247558802109449, guid: 67a3c16822fb71c49acdfc0b734fc1ca,
     type: 3}

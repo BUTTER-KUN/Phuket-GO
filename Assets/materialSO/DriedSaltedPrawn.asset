@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e320e7bba4aab14f83f1543882eb91b, type: 3}
-  m_Name: OAew
+  m_Name: DriedSaltedPrawn
   m_EditorClassIdentifier: 
-  materialID: 3
-  materialName: O-Aew Fruit
-  materialDescription: A jelly with no color. What will the taste be like?
+  materialID: 0
+  materialName: Dried Salted Prawn
+  materialDescription: ' The pantry''s secret ingredient for a savory upgrade!'
   value: 0
-  materialAmount: 4
+  materialAmount: 1
   maxStack: 20
-  materialIcon: {fileID: 21300000, guid: 3a020e045c69c9641976cddd43f993a8, type: 3}
-  materialPrefab: {fileID: 1361288168933584314, guid: aca762cc27888c747b8d341e425c2161,
-    type: 3}
+  materialIcon: {fileID: 0}
+  materialPrefab: {fileID: 0}
